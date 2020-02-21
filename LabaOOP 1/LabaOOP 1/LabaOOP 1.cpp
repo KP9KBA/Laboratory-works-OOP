@@ -1,4 +1,7 @@
 ﻿#include <iostream>
+#include <wchar.h> 
+#include <io.h> 
+#include <fcntl.h>
 #include <iomanip>
 #include <Windows.h>
 
@@ -161,7 +164,7 @@ int main() {
         Десятичных фунтов:  £7.89
         В большинстве компиляторов для представления знака £ используется десятичный код 156. 
         Некоторые компиляторы позволяют скопировать знак фунта прямо из таблицы символов Windows.*/
-      
+        
         float pound, shilling, penny, sum;
         cout << "Введите количество фунтов: ";
         cin >> pound;
@@ -170,7 +173,12 @@ int main() {
         cout << "Введите количество пенсов: ";
         cin >> penny;
         shilling = (shilling * 12 + penny) / (12 * 20);
-        cout << "Десятичных фунтов: " << round((pound + shilling) * 100) / 100;
+        cout << "Десятичных фунтов: ";
+
+        _setmode(_fileno(stdout), _O_U16TEXT);
+        wchar_t F = L'\u00A3';
+        wcout << F;
+        wcout<< round((pound + shilling) * 100) / 100;
         //round((pound + shilling) * 100) / 100 - округление до двух чисел
     }break;
     case 11: {
@@ -183,10 +191,10 @@ int main() {
 Петров      Василий         Кленовая 16	Санкт-Петербург
 Иванов      Сергей           Осиновая 3	Находка
 Сидоров     Иван	Березовая 21	Калининград*/
-        cout << setiosflags(ios::left) << setw(8) << "Фамилия" << setw(8) << "Имя" << setw(8) << "Адрес" << setw(8) << "Город" << endl
-            << setiosflags(ios::left) << setw(8) << "Петров" << setw(8) << "Василий" << setw(8) << "Кленовая 16" << setw(8) << "Санкт-Петербург" << endl
-            << setiosflags(ios::left) << setw(8) << "Иванов" << setw(8) << "Сергей" << setw(8) << "Осиновая 3" << setw(8) << "Находка" << endl
-            << setiosflags(ios::left) << setw(8) << "Сидоров" << setw(8) << "Иван" << setw(8) << "Березовая 21" << setw(8) << "Калининград" << endl;
+        cout << setiosflags(ios::right) << setw(2) << "Фамилия" << setw(20) << "Имя" << setw(20) << "Адрес" << setw(20) << "Город" << endl
+            << setw(20) << "Петров" << setw(20) << "Василий" << setw(20) << "Кленовая 16" << setw(20) << "Санкт-Петербург" << endl
+            << setw(20) << "Иванов" << setw(20) << "Сергей" << setw(20) << "Осиновая 3" << setw(20) << "Находка" << endl
+            << setw(20) << "Сидоров" << setw(20) << "Иван" << setw(20) << "Березовая 21" << setw(20) << "Калининград" << endl;
 
     }break;
     case 12: {
@@ -218,8 +226,11 @@ decfrac = decpounds - pounds;	//прибавление дробной части
         pound = static_cast<int>(decpound);//находим число фунтов
         decshilling = decpound - pound;//число шиллингов
         shilling = decshilling * 20;//находим шиллинги и пенни(до точки шиллинги после пенни)
-        
-        cout << "Эквивалентная сумма в старой форме записи: "<<pound<<"."<<shilling;
+        cout << "Эквивалентная сумма в старой форме записи: ";
+        _setmode(_fileno(stdout), _O_U16TEXT);
+        wchar_t F = L'\u00A3';
+        wcout << F;
+        wcout << pound << "." << shilling;
         
     }break;
     }
