@@ -122,33 +122,26 @@ int main() {
 из которых внутренний будет заниматься печатанием символов 'X' и пробелов, а другой
 осуществлять переход на одну строку вниз.*/
 
-		char F = 'x';
-		int i, j, c, s;
-		//for (i = 0; i < 20; i++) {
-		//	for(c=1;c<i+2;c+2)
-		//		cout << setiosflags(ios::right) << string(40 - i, ' ') << string(c, 'X');
-		//	cout << endl;
-		//	//cout << setiosflags(ios::right) << string(40 - i, ' ') << string(i, 'X');
-		//	
-		//	/*for (j = 0; j < i+c; j++) {
-		//		cout << string(i, 'X') << endl;
-		//	}
-		//	cout << endl;*/
-
-		//}
-		for (i = 0, c = 1; i < 20; i++, c++) {
-			cout << setiosflags(ios::right) << string(40-1 - i, ' ');
-			for (j = 0; j < i + c; j++) {
-				cout << F;
-			}
-			cout << endl;
+		for (int j = 0; j < 19; j++)
+		{
+			cout << "  ";
 		}
-		/*Другой ВАРИАНТ
-		for (i = 0, c = 1; i < 20; i++, c++) {
-			for (j = 0; j < i + c; j++) {
-				cout << F;
+		cout << "х";
+		cout << '\n';
+
+		for (int i = 1; i < 20; i++)
+		{
+			for (int j = 0; j < 20 - (i + 1); j++)
+			{
+				cout << "  ";
 			}
-			cout << endl;*/
+			cout << "х";
+			for (int k = 1; k <= i; k++) {
+				cout << "xх";
+			}
+
+			cout << '\n';
+		}
 	}break;
 	case 6: {
 		/*Измените программу factor таким образом, чтобы она циклически запрашивала ввод 
