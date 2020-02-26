@@ -141,31 +141,362 @@ struct phone
 
 		char F;
 		date d, m, y;
-		cout << "";
+		cout << "Введите дату в формате 12/03/2013: ";
 		cin >> m.mounth >> F >> d.day >> F >> y.year;
-		cout << m.mounth << d.day << y.year << endl;
+		if (m.mounth < 10)cout << "0" << m.mounth << " ";
+		if (d.day < 10)cout << "0" << d.day << " ";
+		else cout << d.day << " ";
+		cout << y.year << endl;
 
 	} break;
 	case 6: {
+		/*6.Как мы говорили, стандартные средства ввода/вывода C++ вместо значений перечисляемых типов 
+		данных выводят их внутреннее представление в виде целых чисел. Для того чтобы преодолеть это 
+		ограничение, вы можете использовать конструкцию switch, с помощью которой устанавливается 
+		соответствие между значением переменной перечисляемого типа и ее внутренним представлением. 
+		Пусть, например, в программе определен перечисляемый тип данных etype, отражающий должность сотрудника:
+enum etype { laborer, secretary, manager, accountant, executive, researcher };
+
+Напишите программу, которая сначала по первой букве должности, введенной пользователем, 
+определяет соответствующее значение переменной, помещает это значение в переменную типа etype, 
+а затем выводит полностью название должности, первую букву которой ввел пользователь. 
+Взаимодействие программы с пользователем может выглядеть следующим образом:
+Введите первую букву должности
+(laborer, secretary, manager, accountant, executive, researcher): a
+Полное название должности; accountant
+Возможно, вам понадобится два ветвления switch: одно — для ввода значения, другое — для вывода.*/
+
+		enum etype { laborer, secretary, manager, accountant, executive, researcher };
+		char name;
+
+		cout << "Введите первую букву должности (laborer, secretary, manager, accountant, executive, researcher) : ";
+		cin >> name;
+		switch (name) {
+		case 'l': { 
+			string etype[]{ "laborer" }; 
+			cout << "Полное название должности: " << etype[0];
+		}break;
+		case 's': {
+			string etype[]{ "secretary" };
+			cout << "Полное название должности: " << etype[0];
+		}break;
+		case 'm': {
+			string etype[]{ "manager" };
+			cout << "Полное название должности: " << etype[0];
+		}break;
+		case 'a': {
+			string etype[]{ "accountant" };
+			cout << "Полное название должности: " << etype[0];
+		}break;
+		case 'e': {
+			string etype[]{ "executive" };
+			cout << "Полное название должности: " << etype[0];
+		}break;
+		case 'r': {
+			string etype[]{ "researcher" };
+			cout << "Полное название должности: " << etype[0];
+		}break;
+		}
 
 	} break;
 	case 7: {
+		/*Добавьте поля типа enum etype (см. упражнение 6) и struct date (см. упражнение 5) в структуру employee
+		из упражнения 4. Организуйте программу таким образом, чтобы пользователь вводил 4 пункта данных о
+		каждом из трех сотрудников: 
+		
+		его номер, величину зарплаты, его должность и дату принятия на работу.
+		Программа должна хранить введенные значения в трех переменных типа employee и выводить их содержимое на экран.*/
+
+		struct employee {
+			int number;
+			float posDollar;
+			enum etype { laborer, secretary, manager, accountant, executive, researcher };
+			struct {
+				int day, mounth, year;
+			} dt;
+		};
+
+
+		employee w1, w2, w3;
+		char F;
+		char dol1, dol2, dol3;
+
+		cout << "Введите  номер, величину зарплаты,  должность и дату принятия на работу работника: ";
+		cin >> w1.number >> w1.posDollar >> dol1 >> w1.dt.mounth >> F >> w1.dt.day >> F >> w1.dt.year;
+		cout << "Введите  номер, величину зарплаты,  должность и дату принятия на работу работника: ";
+		cin >> w2.number >> w2.posDollar >> dol2 >> w2.dt.mounth >> F >> w2.dt.day >> F >> w2.dt.year;
+		cout << "Введите  номер, величину зарплаты,  должность и дату принятия на работу работника: ";
+		cin >> w3.number >> w3.posDollar >> dol3 >> w3.dt.mounth >> F >> w3.dt.day >> F >> w3.dt.year;
+
+		cout << endl << "Информация о сотрудниках\n";
+		cout << "Первый сотрудник:\nНомер " << w1.number << "\nРазмер зарплаты " << w1.posDollar << " в долларах" << endl;
+		//должность
+		switch (dol1) {
+		case 'l': {
+			string etype[]{ "laborer" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 's': {
+			string etype[]{ "secretary" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'm': {
+			string etype[]{ "manager" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'a': {
+			string etype[]{ "accountant" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'e': {
+			string etype[]{ "executive" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'r': {
+			string etype[]{ "researcher" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		}
+		cout << endl << "Дата принятия на работу: ";
+		if (w1.dt.mounth < 10)cout << "0" << w1.dt.mounth << " ";
+		if (w1.dt.day < 10)cout << "0" << w1.dt.day << " ";
+		else cout << w1.dt.day << " ";
+		cout << w1.dt.year << endl;
+		
+		cout << "\nВторой сотрудник:\nНомер " << w2.number << "\nРазмер зарплаты " << w2.posDollar << " в долларах" << endl;
+		//должность
+		switch (dol2) {
+		case 'l': {
+			string etype[]{ "laborer" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 's': {
+			string etype[]{ "secretary" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'm': {
+			string etype[]{ "manager" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'a': {
+			string etype[]{ "accountant" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'e': {
+			string etype[]{ "executive" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'r': {
+			string etype[]{ "researcher" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		} 
+		cout << endl << "Дата принятия на работу: ";
+		if (w2.dt.mounth < 10)cout << "0" << w2.dt.mounth << " ";
+		if (w2.dt.day < 10)cout << "0" << w2.dt.day << " ";
+		else cout << w2.dt.day << " ";
+		cout << w2.dt.year << endl;
+
+		cout << "\nТретий сотрудник:\nНомер " << w3.number << "\nРазмер зарплаты " << w3.posDollar << " в долларах" << endl;
+		//должность
+		switch (dol3) {
+		case 'l': {
+			string etype[]{ "laborer" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 's': {
+			string etype[]{ "secretary" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'm': {
+			string etype[]{ "manager" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'a': {
+			string etype[]{ "accountant" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'e': {
+			string etype[]{ "executive" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		case 'r': {
+			string etype[]{ "researcher" };
+			cout << "Название должности: " << etype[0];
+		}break;
+		}
+		cout << endl << "Дата принятия на работу: ";
+		if (w3.dt.mounth < 10)cout << "0" << w3.dt.mounth << " ";
+		if (w3.dt.day < 10)cout << "0" << w3.dt.day << " ";
+		else cout << w3.dt.day << " ";
+		cout << w3.dt.year << endl;
 
 	} break;
 	case 8: {
+		/*8.Вернитесь к упражнению 9 комплекта заданий 2. В этом упражнении требуется написать программу, 
+		которая хранит значения двух дробей в виде числителя и знаменателя, а затем складывает эти дроби 
+		согласно арифметическому правилу. Измените эту программу так, чтобы значения дробей хранились в 
+		структуре fraction, состоящей из двух полей типа int. предназначенных для хранения числителя и знаменателя. 
+		Все значения дробей должны храниться в переменных типа fraction.*/
+
+		struct fraction {
+			int n1, n2;
+		};
+
+		char oper, ch;
+		fraction a, b;//c = a.n2 d = b.n2
+		char slash = '/';
+
+		do {
+				cout << "Введите первую дробь: ";
+				cin >> a.n1 >> slash >> b.n1;
+				cout << "Введите вторую дробь: ";
+				cin >> a.n2 >> slash >> b.n2;
+				if ((a.n1 * b.n2 + b.n1 * a.n2) == (b.n1 * b.n2))cout << "Сумма равна " << (a.n1 * b.n2 + b.n1 * a.n2) / (b.n1 * b.n2) << endl;
+				else cout << "Сумма равна " << (a.n1 * b.n2 + b.n1 * a.n2) << slash << (b.n1 * b.n2) << endl;
+						
+			cout << "Вы хотете продолжить? (да = y, нет = n) ";
+			cin >> ch;
+		} while (ch != 'n');
 
 	} break;
 	case 9: {
+		/*Создайте структуру с именем time. Три ее поля, имеющие тип int. будут называться hours, minutes и seconds. 
+		Напишите программу, которая просит пользователя ввести время в формате часы, минуты, секунды. 
+		Можно запрашивать на ввод как три значения сразу, так и выводить для каждой величины отдельное приглашение. 
+		Программа должна хранить время в структурной переменной типа time и выводить количество секунд в введенном времени, 
+		определяемое следующим образом:
+long totalsecs = t1.hours*3600 + t1 minutes*60 + t1.seconds*/
+
+		struct Time {
+			int hours, minutes, seconds;
+		};
+
+		Time t;
+		cout << "Введите время (часы минуты секунды) ";
+		cin >> t.hours >> t.minutes >> t.seconds;
+		long totalsecs = t.hours * 3600 + t.minutes * 60 + t.seconds;
+		cout << "количество секунд в введенном времени: " << totalsecs << endl;
 
 	} break;
 	case 10: {
+		/*Создайте структуру с именем sterling, хранящую денежные суммы в старой английской системе, описанной 
+		в упражнениях 8 и 11 комплекса заданий 2. Поля структуры могут быть названы pounds, shillings и 
+		pence и иметь тип int. Программа должна запрашивать у пользователя значение денежной суммы в новых десятичных фунтах 
+		(значение должно храниться в переменной типа double), затем переводить эту сумму в старую систему, 
+		сохранять переведенное значение в переменной типа sterling и выводить на экран полученную сумму в фунтах, 
+		шиллингах и пенсах.*/
+
+		struct sterling {
+			int pound, shilling, penny;
+		};
+
+		sterling now; //now - nowoe
+		char C = '.';
+		double decpo, decshi;
+		//1 фунт был равен 20 шиллингам, а 1 шиллинг — 12 пенсам
+		cout << "Введите число десятичных фунтов(фунты.шиллинги): ";
+		cin >> decpo;
+		now.pound = static_cast<int>(decpo);//находим число фунтов
+		decshi = decpo - now.pound;//число шиллингов
+		now.shilling = decshi * 20;//находим шиллинги и пенни(до точки шиллинги после пенни)		
+		//now.penny = static_cast<int>((decshi * 20) % 20);
+		cout << "Эквивалентная сумма в старой форме записи: ";
+		cout << now.pound << C << now.shilling << C << now.penny << endl;
+		
+
+		//double decpound, decshilling, shilling;
+		//int pound;
+		//cout << "Введите число десятичных фунтов: ";
+		//cin >> decpound;
+		//pound = static_cast<int>(decpound);//находим число фунтов
+		//decshilling = decpound - pound;//число шиллингов
+		//shilling = decshilling * 20;//находим шиллинги и пенни(до точки шиллинги после пенни)
+		//cout << "Эквивалентная сумма в старой форме записи: ";
+		//cout << pound << "." << shilling;
 
 	} break;
 	case 11: {
+		/*Используя структуру time из упражнения 9, напишите программу, которая получает от пользователя 
+		два значения времени в формате 12:59:59, сохраняет их в переменных типа struct time, 
+		затем переводит оба значения в секунды, складывает их, переводит сумму в исходный формат, 
+		сохраняет его в переменной типа time и выводит полученный результат на экран в формате 12:59:59.*/
+
+		struct Time {
+			int hours, minutes, seconds;
+		};
+
+		Time t1, t2;
+		char F = ':';
+		cout << "Введите время (часы:минуты:секунды) ";
+		cin >> t1.hours >>F>> t1.minutes >>F>> t1.seconds;
+		cout << "Введите время (часы:минуты:секунды) ";
+		cin >> t2.hours >>F>> t2.minutes >>F>> t2.seconds;
+		t1.seconds = t1.hours * 3600 + t1.minutes * 60 + t1.seconds;
+		t2.seconds = t2.hours * 3600 + t2.minutes * 60 + t2.seconds;
+		long totalsecs = t1.seconds + t2.seconds;
+		t2.hours = totalsecs / 3600;
+		totalsecs -= t2.hours * 3600;//остаются секунды + минуты
+		t2.minutes = totalsecs / 60;
+		t2.seconds = totalsecs - t2.minutes * 60;//находим число секунд
+
+		cout << "Сумма: " << t2.hours << F << t2.minutes << F << t2.seconds << endl;
 
 	} break;
 	case 12: {
+		/*Переработайте программу-калькулятор для дробей, описанную в упражнении 12 комплекта упражнений 3 так, 
+		чтобы каждая из дробей хранилась как значение переменной типа struct fraction, по аналогии с упражнением 
+		8 этого комплекса упражнений.*/
+		struct fraction {
+			int n1, n2;
+		};
 
+		char oper, ch;
+		fraction a, b;//c = a.n2 d = b.n2
+		char slash = '/';
+
+		do {
+			cout << "Введите оператор (+, -, *, /): ";
+			cin >> oper;
+			switch (oper)
+			{
+			case '+': {
+				cout << "Введите первую дробь: ";
+				cin >> a.n1 >> slash >> b.n1;
+				cout << "Введите вторую дробь: ";
+				cin >> a.n2 >> slash >> b.n2;
+				if ((a.n1 * b.n2 + b.n1 * a.n2) == (b.n1 * b.n2))cout << "Сумма равна " << (a.n1 * b.n2 + b.n1 * a.n2) / (b.n1 * b.n2) << endl;
+				else cout << "Сумма равна " << (a.n1 * b.n2 + b.n1 * a.n2) << slash << (b.n1 * b.n2) << endl;
+			} break;
+			case '-': {
+				cout << "Введите первую дробь: ";
+				cin >> a.n1 >> slash >> b.n1;
+				cout << "Введите вторую дробь: ";
+				cin >> a.n2 >> slash >> b.n2;
+				if ((a.n1 * b.n2 - b.n1 * a.n2) == (b.n1 * b.n2))cout << "Разность равна " << (a.n1 * b.n2 - b.n1 * a.n2) / (b.n1 * b.n2) << endl;
+				else cout << "Разность равна " << (a.n1 * b.n2 - b.n1 * a.n2) << slash << (b.n1 * b.n2) << endl;
+			} break;
+			case '*': {
+				cout << "Введите первую дробь: ";
+				cin >> a.n1 >> slash >> b.n1;
+				cout << "Введите вторую дробь: ";
+				cin >> a.n2 >> slash >> b.n2;
+				if ((a.n1 * a.n2) == (b.n1 * b.n2)) cout << "Результат умножения равен " << (a.n1 * a.n2) / (b.n1 * b.n2) << endl;
+				else cout << "Результат умножения равен " << (a.n1 * a.n2) << slash << (b.n1 * b.n2) << endl;
+			} break;
+			case '/': {
+				cout << "Введите первую дробь: ";
+				cin >> a.n1 >> slash >> b.n1;
+				cout << "Введите вторую дробь: ";
+				cin >> a.n2 >> slash >> b.n2;
+				if ((a.n1 * b.n2) == (b.n1 * a.n1))cout << "Результат деления равен " << (a.n1 * b.n2) / (b.n1 * a.n1) << endl;
+				else cout << "Результат деления равен " << (a.n1 * b.n2) << slash << (b.n1 * a.n1) << endl;
+			} break;
+			default: cout << "Введен неверный оператор";
+			}
+			cout << "Вы хотете продолжить? (да = y, нет = n) ";
+			cin >> ch;
+		} while (ch != 'n');
 	} break;
 	}
 
