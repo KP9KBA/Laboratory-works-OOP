@@ -399,21 +399,10 @@ long totalsecs = t1.hours*3600 + t1 minutes*60 + t1.seconds*/
 		cin >> decpo;
 		now.pound = static_cast<int>(decpo);//находим число фунтов
 		decshi = decpo - now.pound;//число шиллингов
-		now.shilling = decshi * 20;//находим шиллинги и пенни(до точки шиллинги после пенни)		
-		//now.penny = static_cast<int>((decshi * 20) % 20);
+		now.shilling = static_cast<int>(decshi * 20);//находим шиллинги и пенни(до точки шиллинги после пенни)		
+		now.penny = static_cast<int>(decshi * 240 - now.shilling * 12);
 		cout << "Эквивалентная сумма в старой форме записи: ";
 		cout << now.pound << C << now.shilling << C << now.penny << endl;
-		
-
-		//double decpound, decshilling, shilling;
-		//int pound;
-		//cout << "Введите число десятичных фунтов: ";
-		//cin >> decpound;
-		//pound = static_cast<int>(decpound);//находим число фунтов
-		//decshilling = decpound - pound;//число шиллингов
-		//shilling = decshilling * 20;//находим шиллинги и пенни(до точки шиллинги после пенни)
-		//cout << "Эквивалентная сумма в старой форме записи: ";
-		//cout << pound << "." << shilling;
 
 	} break;
 	case 11: {
