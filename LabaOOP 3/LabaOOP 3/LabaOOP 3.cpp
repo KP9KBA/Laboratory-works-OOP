@@ -168,35 +168,68 @@ enum etype { laborer, secretary, manager, accountant, executive, researcher };
 
 		enum etype { laborer, secretary, manager, accountant, executive, researcher };
 		char name;
+		int temp = 0;
 
 		cout << "Введите первую букву должности (laborer, secretary, manager, accountant, executive, researcher) : ";
 		cin >> name;
-		switch (name) {
-		case 'l': { 
-			string etype[]{ "laborer" }; 
-			cout << "Полное название должности: " << etype[0];
-		}break;
-		case 's': {
-			string etype[]{ "secretary" };
-			cout << "Полное название должности: " << etype[0];
-		}break;
-		case 'm': {
-			string etype[]{ "manager" };
-			cout << "Полное название должности: " << etype[0];
-		}break;
-		case 'a': {
-			string etype[]{ "accountant" };
-			cout << "Полное название должности: " << etype[0];
-		}break;
-		case 'e': {
-			string etype[]{ "executive" };
-			cout << "Полное название должности: " << etype[0];
-		}break;
-		case 'r': {
-			string etype[]{ "researcher" };
-			cout << "Полное название должности: " << etype[0];
-		}break;
+		/*switch (name) {*/
+		//case 'l': { 
+		//	/*string etype[]{ "laborer" }; */
+
+		//	cout << "Полное название должности: " << etype[0];
+		//}break;
+		//case 's': {
+		//	string etype[]{ "secretary" };
+		//	cout << "Полное название должности: " << etype[0];
+		//}break;
+		//case 'm': {
+		//	string etype[]{ "manager" };
+		//	cout << "Полное название должности: " << etype[0];
+		//}break;
+		//case 'a': {
+		//	string etype[]{ "accountant" };
+		//	cout << "Полное название должности: " << etype[0];
+		//}break;
+		//case 'e': {
+		//	string etype[]{ "executive" };
+		//	cout << "Полное название должности: " << etype[0];
+		//}break;
+		//case 'r': {
+		//	string etype[]{ "researcher" };
+		//	cout << "Полное название должности: " << etype[0];
+		//}break};
+		switch (name)
+		{
+			case 'l': {
+				temp = laborer;
+			}break;
+			case 's': {
+				temp = secretary;
+			}break;
+			case 'm': {
+				temp = manager;
+			}break;
+			case 'a': {
+				temp = accountant;
+			}break;
+			case 'e': {
+				temp = executive;
+			}break;
+			case 'r': {
+				temp = researcher;
+			}
 		}
+		switch (temp)
+		{
+		case 0: {cout << "Полное название должности: laborer" << endl; }break;
+		case 1: {cout << "Полное название должности: secretary" << endl; }break;
+		case 2: {cout << "Полное название должности: manager" << endl; }break;
+		case 3: {cout << "Полное название должности: accountant" << endl; }break;
+		case 4: {cout << "Полное название должности: executive" << endl; }break;
+		case 5: {cout << "Полное название должности: researcher" << endl; }break;
+			break;
+		}
+		
 
 	} break;
 	case 7: {
