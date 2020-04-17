@@ -175,7 +175,6 @@ enum etype { laborer, secretary, manager, accountant, executive, researcher };
 		/*switch (name) {*/
 		//case 'l': { 
 		//	/*string etype[]{ "laborer" }; */
-
 		//	cout << "Полное название должности: " << etype[0];
 		//}break;
 		//case 's': {
@@ -219,14 +218,15 @@ enum etype { laborer, secretary, manager, accountant, executive, researcher };
 				temp = researcher;
 			}
 		}
+		cout << "Полное название должности : ";
 		switch (temp)
 		{
-		case 0: {cout << "Полное название должности: laborer" << endl; }break;
-		case 1: {cout << "Полное название должности: secretary" << endl; }break;
-		case 2: {cout << "Полное название должности: manager" << endl; }break;
-		case 3: {cout << "Полное название должности: accountant" << endl; }break;
-		case 4: {cout << "Полное название должности: executive" << endl; }break;
-		case 5: {cout << "Полное название должности: researcher" << endl; }break;
+		case 0: {cout << "laborer" << endl; }break;
+		case 1: {cout << "secretary" << endl; }break;
+		case 2: {cout << "manager" << endl; }break;
+		case 3: {cout << "accountant" << endl; }break;
+		case 4: {cout << "executive" << endl; }break;
+		case 5: {cout << "researcher" << endl; }break;
 			break;
 		}
 		
@@ -239,11 +239,10 @@ enum etype { laborer, secretary, manager, accountant, executive, researcher };
 		
 		его номер, величину зарплаты, его должность и дату принятия на работу.
 		Программа должна хранить введенные значения в трех переменных типа employee и выводить их содержимое на экран.*/
-
+		enum etype { laborer, secretary, manager, accountant, executive, researcher };
 		struct employee {
 			int number;
 			float posDollar;
-			enum etype { laborer, secretary, manager, accountant, executive, researcher };
 			struct {
 				int day, mounth, year;
 			} dt;
@@ -252,44 +251,50 @@ enum etype { laborer, secretary, manager, accountant, executive, researcher };
 
 		employee w1, w2, w3;
 		char F;
-		char dol1, dol2, dol3;
+		char name1, name2, name3;
+		int temp = 0;
 
 		cout << "Введите  номер, величину зарплаты,  должность и дату принятия на работу работника: ";
-		cin >> w1.number >> w1.posDollar >> dol1 >> w1.dt.mounth >> F >> w1.dt.day >> F >> w1.dt.year;
+		cin >> w1.number >> w1.posDollar >> name1 >> w1.dt.mounth >> F >> w1.dt.day >> F >> w1.dt.year;
 		cout << "Введите  номер, величину зарплаты,  должность и дату принятия на работу работника: ";
-		cin >> w2.number >> w2.posDollar >> dol2 >> w2.dt.mounth >> F >> w2.dt.day >> F >> w2.dt.year;
+		cin >> w2.number >> w2.posDollar >> name2 >> w2.dt.mounth >> F >> w2.dt.day >> F >> w2.dt.year;
 		cout << "Введите  номер, величину зарплаты,  должность и дату принятия на работу работника: ";
-		cin >> w3.number >> w3.posDollar >> dol3 >> w3.dt.mounth >> F >> w3.dt.day >> F >> w3.dt.year;
+		cin >> w3.number >> w3.posDollar >> name3 >> w3.dt.mounth >> F >> w3.dt.day >> F >> w3.dt.year;
 
 		cout << endl << "Информация о сотрудниках\n";
 		cout << "Первый сотрудник:\nНомер " << w1.number << "\nРазмер зарплаты " << w1.posDollar << " в долларах" << endl;
 		//должность
-		switch (dol1) {
-		case 'l': {
-			string etype[]{ "laborer" };
-			cout << "Название должности: " << etype[0];
-		}break;
-		case 's': {
-			string etype[]{ "secretary" };
-			cout << "Название должности: " << etype[0];
-		}break;
-		case 'm': {
-			string etype[]{ "manager" };
-			cout << "Название должности: " << etype[0];
-		}break;
-		case 'a': {
-			string etype[]{ "accountant" };
-			cout << "Название должности: " << etype[0];
-		}break;
-		case 'e': {
-			string etype[]{ "executive" };
-			cout << "Название должности: " << etype[0];
-		}break;
-		case 'r': {
-			string etype[]{ "researcher" };
-			cout << "Название должности: " << etype[0];
-		}break;
-		}
+		switch (name1) {
+			case 'l': {
+				temp = laborer;
+			}break;
+			case 's': {
+				temp = secretary;
+			}break;
+			case 'm': {
+				temp = manager;
+			}break;
+			case 'a': {
+				temp = accountant;
+			}break;
+			case 'e': {
+				temp = executive;
+			}break;
+			case 'r': {
+				temp = researcher;
+			}
+			}
+			cout << "Полное название должности : ";
+			switch (temp)
+			{
+			case 0: {cout << "laborer" << endl; }break;
+			case 1: {cout << "secretary" << endl; }break;
+			case 2: {cout << "manager" << endl; }break;
+			case 3: {cout << "accountant" << endl; }break;
+			case 4: {cout << "executive" << endl; }break;
+			case 5: {cout << "researcher" << endl; }break;
+				break;
+			}
 		cout << endl << "Дата принятия на работу: ";
 		if (w1.dt.mounth < 10)cout << "0" << w1.dt.mounth << " ";
 		if (w1.dt.day < 10)cout << "0" << w1.dt.day << " ";
@@ -298,32 +303,37 @@ enum etype { laborer, secretary, manager, accountant, executive, researcher };
 		
 		cout << "\nВторой сотрудник:\nНомер " << w2.number << "\nРазмер зарплаты " << w2.posDollar << " в долларах" << endl;
 		//должность
-		switch (dol2) {
+		switch (name2) {
 		case 'l': {
-			string etype[]{ "laborer" };
-			cout << "Название должности: " << etype[0];
+			temp = laborer;
 		}break;
 		case 's': {
-			string etype[]{ "secretary" };
-			cout << "Название должности: " << etype[0];
+			temp = secretary;
 		}break;
 		case 'm': {
-			string etype[]{ "manager" };
-			cout << "Название должности: " << etype[0];
+			temp = manager;
 		}break;
 		case 'a': {
-			string etype[]{ "accountant" };
-			cout << "Название должности: " << etype[0];
+			temp = accountant;
 		}break;
 		case 'e': {
-			string etype[]{ "executive" };
-			cout << "Название должности: " << etype[0];
+			temp = executive;
 		}break;
 		case 'r': {
-			string etype[]{ "researcher" };
-			cout << "Название должности: " << etype[0];
-		}break;
-		} 
+			temp = researcher;
+		}
+		}
+		cout << "Полное название должности : ";
+		switch (temp)
+		{
+		case 0: {cout << "laborer" << endl; }break;
+		case 1: {cout << "secretary" << endl; }break;
+		case 2: {cout << "manager" << endl; }break;
+		case 3: {cout << "accountant" << endl; }break;
+		case 4: {cout << "executive" << endl; }break;
+		case 5: {cout << "researcher" << endl; }break;
+			break;
+		}
 		cout << endl << "Дата принятия на работу: ";
 		if (w2.dt.mounth < 10)cout << "0" << w2.dt.mounth << " ";
 		if (w2.dt.day < 10)cout << "0" << w2.dt.day << " ";
@@ -332,31 +342,36 @@ enum etype { laborer, secretary, manager, accountant, executive, researcher };
 
 		cout << "\nТретий сотрудник:\nНомер " << w3.number << "\nРазмер зарплаты " << w3.posDollar << " в долларах" << endl;
 		//должность
-		switch (dol3) {
+		switch (name1) {
 		case 'l': {
-			string etype[]{ "laborer" };
-			cout << "Название должности: " << etype[0];
+			temp = laborer;
 		}break;
 		case 's': {
-			string etype[]{ "secretary" };
-			cout << "Название должности: " << etype[0];
+			temp = secretary;
 		}break;
 		case 'm': {
-			string etype[]{ "manager" };
-			cout << "Название должности: " << etype[0];
+			temp = manager;
 		}break;
 		case 'a': {
-			string etype[]{ "accountant" };
-			cout << "Название должности: " << etype[0];
+			temp = accountant;
 		}break;
 		case 'e': {
-			string etype[]{ "executive" };
-			cout << "Название должности: " << etype[0];
+			temp = executive;
 		}break;
 		case 'r': {
-			string etype[]{ "researcher" };
-			cout << "Название должности: " << etype[0];
-		}break;
+			temp = researcher;
+		}
+		}
+		cout << "Полное название должности : ";
+		switch (temp)
+		{
+		case 0: {cout << "laborer" << endl; }break;
+		case 1: {cout << "secretary" << endl; }break;
+		case 2: {cout << "manager" << endl; }break;
+		case 3: {cout << "accountant" << endl; }break;
+		case 4: {cout << "executive" << endl; }break;
+		case 5: {cout << "researcher" << endl; }break;
+			break;
 		}
 		cout << endl << "Дата принятия на работу: ";
 		if (w3.dt.mounth < 10)cout << "0" << w3.dt.mounth << " ";
