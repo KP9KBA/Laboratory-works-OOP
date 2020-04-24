@@ -173,8 +173,8 @@ public:
 //number 7/10
 class angle {
 private:
-	int min;
-	float grad;
+	int grad;
+	float min;
 	char napr;
 public: 
 	
@@ -198,7 +198,7 @@ public:
 	void putNumber() {
 		vsego++;
 		num = vsego;
-		cout << num << endl;
+		cout << "Мой порядковый номер: " << num << endl;
 	}
 };
 int Number::vsego = 0;

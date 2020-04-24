@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{654313A5-CD96-4EE7-9D80-9F236DA1EA7D}</ProjectGuid>
+    <ProjectGuid>{E657E013-73E5-402A-8AE9-42B6FF8BD151}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LabaOOP2</RootNamespace>
+    <RootNamespace>My512</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -147,7 +147,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="LabaOOP 2.cpp" />
+    <ClCompile Include="5.12.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
